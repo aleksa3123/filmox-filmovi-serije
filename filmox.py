@@ -1,23 +1,25 @@
 import requests
 import json
-from bs4 import BeautifulSoup
 import textwrap
 import base64
 
-venoxzero = """
+from bs4 import BeautifulSoup
+from colorama import Fore, Back, Style
 
- __      __                   ______              
- \ \    / /                  |___  /              
-  \ \  / /__ _ __   _____  __   / / ___ _ __ ___  
-   \ \/ / _ \ '_ \ / _ \ \/ /  / / / _ \ '__/ _ \ 
-    \  /  __/ | | | (_) >  <  / /_|  __/ | | (_) |
-     \/ \___|_| |_|\___/_/\_\/_____\___|_|  \___/ 
-                                                  
-                                                  
+
+filmox = """
+______ _ _                     
+|  ___(_) |                    
+| |_   _| |_ __ ___   _____  __
+|  _| | | | '_ ` _ \ / _ \ \/ /
+| |   | | | | | | | | (_) >  < 
+\_|   |_|_|_| |_| |_|\___/_/\_\\
+                                                                                                  
+VenoxZero je radio traku!
 
 """
-print(venoxzero)
-broj = input('Unesite broj strana: ')
+print(Fore.RED + filmox )
+broj = input(Fore.YELLOW + 'Unesite broj strana: ')
 
 stranice = int(broj) + 1
 
@@ -71,6 +73,7 @@ with open("sadrzaj.json") as json_file:
             }
 
             temp.append(y)
+            print("\n")
 
             print(naslov.text)
             print("\n")
@@ -81,6 +84,8 @@ with open("sadrzaj.json") as json_file:
             print(base64_iframe)
 
 write_json(data)
+print("\n")
+print("Uspesno ste sacuvali sav sadrzaj!")
 
 
 
