@@ -59,16 +59,14 @@ with open("sadrzaj.json") as json_file:
             iframe = results.find('iframe')
             temp = data["filmovi"]
 
-            message_bytes = iframe.encode('ascii')
-            base64_bytes = base64.b64encode(message_bytes)
-            base64_iframe = base64_bytes.decode('ascii')
 
+            
             y = {
                 
             "url" : link ,
             "naslov": str(naslov.text),
             "opis": str(opis.text),
-            "iframe": str(base64_iframe)
+            "iframe": str(iframe)
             
             }
 
@@ -77,29 +75,12 @@ with open("sadrzaj.json") as json_file:
 
             print(naslov.text)
             print("\n")
-            #print(opis.text)
+            
             print (opis.text)
 
             print("\n")
-            print(base64_iframe)
+            print(iframe)
 
 write_json(data)
 print("\n")
 print("Uspesno ste sacuvali sav sadrzaj!")
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
- 
- 
