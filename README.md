@@ -1,14 +1,6 @@
 # Filmox - filmovi-serije
 
 Skripta koja pronalazi filmove/serije i ubacuje ih u bazu podataka
-______ _ _                     
-|  ___(_) |                    
-| |_   _| |_ __ ___   _____  __
-|  _| | | | '_ ` _ \ / _ \ \/ /
-| |   | | | | | | | | (_) >  < 
-\_|   |_|_|_| |_| |_|\___/_/\_\\
-                                                                                                  
-VenoxZero je radio traku!
 
 1. Potrebni moduli:
 
