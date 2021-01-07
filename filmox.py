@@ -19,33 +19,31 @@ VenoxZero je radio traku!
 
 """
 print(Fore.RED + filmox )
-broj = input(Fore.YELLOW + 'Unesite broj strana: ')
+broj = input(Fore.YELLOW + 'Unesite broj strana: ') #Input za unosenje broja stranica
 
-stranice = int(broj) + 1
+stranice = int(broj) + 1 #Dodavanje 1 na broj stranica da bi broj bio tacan
 
-def write_json(data,filename="sadrzaj.json"):
-    with open(filename, "w") as f:
+def write_json(data,filename="sadrzaj.json"): #Definisanje json fajla
+    with open(filename, "w") as f: 
         json.dump(data, f,  indent=4)
 
 
-with open("sadrzaj.json") as json_file:
-    data = json.load(json_file)
+with open("sadrzaj.json") as json_file: #Otvaranje json fajla
+    data = json.load(json_file) #Ocitavanje podataka iz json fajla
 
     
 
-    for i in range(1, int(stranice)):
+    for i in range(1, int(stranice)):#For loop za broj stranica
 
-        URL = 'https://www.popcornsrbija.com/filmovi/?page=' + str(i)
+        URL = 'https://www.popcornsrbija.com/filmovi/?page=' + str(i) #URL sa kog su stranice, njega mozete menjati ali paginacija mora biti preko get metode(Ako je ?page drugacije promenite ga)
         page = requests.get(URL)
 
         soup = BeautifulSoup(page.content, 'html.parser')
 
 
-        for opis in soup.find_all('div', class_='opis'):
+        for opis in soup.find_all('div', class_='opis'): #Pronalazi sve div tagove sa klasom opis
             title =  opis.find('a')
-            link = 'https://www.popcornsrbija.com' + title['href']
-            print (link)
-
+            link = 'https://www.popcornsrbija.com' + title['href'] #Pravljenje linka za film
             page = requests.get(link)
 
             soup = BeautifulSoup(page.content, 'html.parser')
@@ -53,14 +51,15 @@ with open("sadrzaj.json") as json_file:
 
             results = soup.find('body')
 
-
+            #Definisanje promenljivih
             naslov = results.find('h1')
             opis = results.find('p')
             iframe = results.find('iframe')
             temp = data["filmovi"]
-
-
             
+
+
+            #Ubacivanje podataka u json fajl
             y = {
                 
             "url" : link ,
@@ -71,15 +70,8 @@ with open("sadrzaj.json") as json_file:
             }
 
             temp.append(y)
-            print("\n")
-
             print(naslov.text)
-            print("\n")
             
-            print (opis.text)
-
-            print("\n")
-            print(iframe)
 
 write_json(data)
 print("\n")
