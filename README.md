@@ -2,7 +2,7 @@
 
 Skripta koja pronalazi filmove/serije i ubacuje ih u bazu podataka
 
-# 1. Potrebni moduli:
+## 1. Potrebni moduli:
 
 ```bash
 pip3 install beautifulsoup4
