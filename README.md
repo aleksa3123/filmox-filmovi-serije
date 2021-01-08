@@ -19,6 +19,10 @@ pip3 install colorama
 ```bash
 pip3 install mysql-connector-python
 ```
+```bash
+
+pip install omdb
+```
 ### 2. Skriptu pokrecete sa python3 filmox.py
 ### 3. Izbacice vam da unesete broj page (sa koliko page zelite da uzmete sadrzaj)
 ### 4. Kada je skripta zavrsila izbacice vam "Uspesno ste sacuvali sav sadrzaj!", svi podatci koje
